@@ -1,0 +1,37 @@
+
+type Query {
+    movie(movieId: String!): Movie!
+    actor(actorId: String!): Actor!
+    character(characterId: String!): Character!
+    movies: [Movie!]!
+    actors: [Actor!]!
+    characters: [Character!]!
+    totalMovies: Int!
+    totalActors: Int!
+    totalCharacters: Int!
+}
+
+type Movie {
+    id: ID!
+    title: String!
+    characters: [Character!]
+    actors: [Actor!]
+}
+
+type Actor {
+    id: ID!
+    name: String!
+    surname: String!
+    movies: [Movie!]
+}
+
+type Character {
+    id: ID!
+    name: String!
+    status: String
+    movie: Movie!
+}
+
+schema {
+    query: Query
+}
